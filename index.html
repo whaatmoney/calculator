@@ -1061,16 +1061,16 @@
     }
 
     /* Hide everything that isn't on the printed quote.
-       The Price Updater (qpc-section) is a separate SCREEN page —
-       it is never included in the printed PDF. */
-    .topbar, .toolbar, .refs, .qpc-section,
+       The Price Updater is a separate SCREEN page — every element
+       carrying the .page-updater class is excluded from the PDF.
+       The .page-calc elements show by default in print because the
+       screen view-toggle rule is wrapped in @media screen and does
+       not fire during print, so no revert/override is needed. */
+    .topbar, .toolbar, .refs, .page-updater,
     .hero p, .hero .ornament,
     .echo, .step-head .desc,
     .step-num::before, .toggle,
     details, .section-head { display: none !important; }
-    /* Force the calculator page to show in print regardless of
-       which screen view is currently active. */
-    .page-calc { display: revert !important; }
 
     /* Reset page chrome — THREE-column landscape layout */
     .page {
